@@ -1,12 +1,15 @@
 name: io-context
 version: 0.1.0
-digest: sha256:d62d1c9551b09781e737441ea44f063ee33e62acf5fe6e2428877fe27066ce3c
+digest: sha256:055b0d54b13bea51adf060cdbabdacc70b95a432caaba4470a63493466ef4205
 registry: 10.20.30.11:8080
 context: cyan
 filters:
-  - any:
+  - all:
       - exact:
           type: iodocument
+      - not:
+          prefix:
+            subject: '#'
 run:
   envs:
     - name: NEO4J_URI
