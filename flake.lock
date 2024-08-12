@@ -107,11 +107,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1723391498,
-        "narHash": "sha256-76RSPH7uVSxIrU08Iex09xrIED2HmG7VjMbqB06YOxA=",
+        "lastModified": 1723468040,
+        "narHash": "sha256-8zJGseATCpi06YTMa1vrRu+tl7j5JjzDokQpzq8TLeM=",
         "owner": "mindwm",
         "repo": "mindwm-sdk-python-ng",
-        "rev": "1af13ecf02f566dadf6659e93b27129e339c886e",
+        "rev": "64ce7b8c93b294e9b73aec576656a7290676df5a",
         "type": "github"
       },
       "original": {
