@@ -1,6 +1,6 @@
 name: io-context
 version: 0.1.0
-digest: sha256:0c0cf529349e8e57b504630c86223ebf5e8633ab8941d0d67244a88ce25b5e45
+digest: sha256:08456246ff81f396cf019cfa38d918ff1e88b311f61acd704de22f8b104023b0
 registry: 10.20.30.11:8080
 context: cyan
 filters:
@@ -23,4 +23,4 @@ run:
     - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
       value: http://tempo-distributor.monitoring-ng:4317/v1/traces
     - name: LOG_LEVEL
-      value: DEBUG
+      value: INFO
