@@ -12,22 +12,14 @@ async def func(
         username: str,
         hostname: str,
         socket_path: str,
-        tmux_session: str,
-        tmux_pane: str):
+        session_id: str,
+        pane_title: str):
 
     user = graph.User(username=username).merge()
     host = graph.Host(hostname=hostname).merge()
-
-    socket_path = socket_path.strip("b'").strip('/')
-    socket_path = f"{username}@{hostname}/{socket_path}"
     tmux = graph.Tmux(socket_path=socket_path).merge()
-
-    session_id = f"{socket_path}:{tmux_session}"
     sess = graph.TmuxSession(name=session_id).merge()
-
-    tmux_pane = f"{session_id}%{tmux_pane}"
-    pane = graph.TmuxPane(title=tmux_pane).merge()
-
+    pane = graph.TmuxPane(title=pane_title).merge()
     iodoc = graph.IoDocument(
             uuid=uuid,
             input=iodocument.input,
