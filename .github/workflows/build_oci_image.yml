@@ -23,6 +23,8 @@ jobs:
     - name: Login to repository
       run: |
         echo ${{ secrets.MINDWM_TOKEN }} | skopeo login -u metacoma --password-stdin ghcr.io
+    - name: get repository name
+      run: echo "REPOSITORY_NAME=${{ github.event.repository.name }}"
     - name: Push image
       run: |
         skopeo --version
