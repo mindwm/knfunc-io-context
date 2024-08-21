@@ -1,5 +1,5 @@
 {
-  description = "A MindWM knfunc for event processing";
+  description = "A MindWM knfunc to processing iodocuments";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/24.05";
