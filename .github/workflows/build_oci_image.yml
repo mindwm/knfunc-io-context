@@ -16,10 +16,10 @@ jobs:
         # If you chose API tokens for write access OR if you have a private cache
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - uses: DeterminateSystems/magic-nix-cache-action@v2
-    - run: nix build .#docker
-    - uses: warjiang/setup-skopeo@latest
-      with:
-        version: latest
+    - name: build OCI image
+      run: nix build .#docker
+    - name: Set up skopeo environment
+      uses: warjiang/setup-skopeo@v0.1.3
     - name: 'Sync images'
       run: |
         skopeo --version
