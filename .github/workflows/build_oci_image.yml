@@ -26,6 +26,6 @@ jobs:
     - name: Push image
       run: |
         skopeo --version
-        skopeo copy --dest-creds \
+        skopeo copy \
         docker-archive:./result \
         docker://${{ env.DEST_REGISTRY }}/context-io:latest
