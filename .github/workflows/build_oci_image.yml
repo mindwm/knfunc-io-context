@@ -1,7 +1,8 @@
 name: "Build and push OCI image"
 on:
-  pull_request:
   push:
+    branches:
+      - master
 jobs:
   build_and_push:
     runs-on: ubuntu-latest
