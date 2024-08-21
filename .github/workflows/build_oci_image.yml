@@ -20,10 +20,12 @@ jobs:
       run: nix build .#docker
     - name: Set up skopeo environment
       uses: warjiang/setup-skopeo@v0.1.3
-    - name: 'Sync images'
+    - name: Login to repository
+      run: |
+        echo ${{ secrets.MINDWM_TOKEN }} | skopeo login -u metacoma --password-stdin ghcr.io
+    - name: Push image
       run: |
         skopeo --version
         skopeo copy --dest-creds \
-        ${{ secrets.DEST_REGISTRY_USER }}:${{ secrets.DEST_REGISTRY_PASSWORD }} \
         docker-archive:./result \
         docker://${{ secrets.DEST_REGISTRY }}/context-io:latest
