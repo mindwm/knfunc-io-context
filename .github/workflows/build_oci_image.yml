@@ -28,4 +28,4 @@ jobs:
         skopeo --version
         skopeo copy \
         docker-archive:./result \
-        docker://${{ env.DEST_REGISTRY }}/context-io:latest
+        docker://${{ vars.DEST_REGISTRY }}/context-io:latest
