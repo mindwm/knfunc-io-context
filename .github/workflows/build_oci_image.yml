@@ -1,8 +1,9 @@
 name: "Build and push OCI image"
 on:
   push:
-    branches:
-      - master
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
 jobs:
   build_and_push:
     runs-on: ubuntu-latest
@@ -15,7 +16,8 @@ jobs:
       with:
         name: mindwm
         # If you chose API tokens for write access OR if you have a private cache
-        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+        # we're not pushing anything to the cachix
+        #authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - uses: DeterminateSystems/magic-nix-cache-action@v2
     - name: build OCI image
       run: nix build .#docker
@@ -24,11 +26,19 @@ jobs:
     - name: Login to repository
       run: |
         echo ${{ secrets.MINDWM_TOKEN }} | skopeo login -u metacoma --password-stdin ghcr.io
-    - name: get repository name
-      run: echo "REPOSITORY_NAME=${{ github.event.repository.name }}"
+    - name: Determine image pag
+      uses: haya14busa/action-cond@v1
+      id: imageTag
+      with:
+        cond: ${{ github.event_name != 'pull_request' }}
+        if_true: 'latest'
+        if_false: 'pr${{ github.event.number }}'
+    - name: get image name
+      run: echo "IMAGE=${{ vars.DEST_REGISTRY }}/${{ github.event.repository.name }}:${{ steps.imageTag.outputs.value }}"
     - name: Push image
+      if: github.event_name != 'pull_request'
       run: |
         skopeo --version
         skopeo copy \
         docker-archive:./result \
-        docker://${{ vars.DEST_REGISTRY }}/${{ github.event.repository.name }}:latest
+        docker://${{ vars.DEST_REGISTRY }}/${{ github.event.repository.name }}:${{ steps.imageTag.outputs.value }}
