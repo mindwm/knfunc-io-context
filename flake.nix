@@ -1,6 +1,15 @@
 {
   description = "A MindWM knfunc to processing iodocuments";
 
+  nixConfig = {
+    extra-substituters = [
+      "https://mindwm.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "mindwm.cachix.org-1:In6w4fMJIePkmR6KtExKPlrvn1P1YHzlSWoO3zk+Z64="
+    ];
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/24.05";
     #nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
