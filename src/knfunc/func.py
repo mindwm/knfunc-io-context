@@ -1,5 +1,5 @@
 from mindwm import logging
-from mindwm.model.events import IoDocument
+from mindwm.model.objects import IoDocument
 from mindwm.knfunc.decorators import iodoc, app
 
 logger = logging.getLogger(__name__)

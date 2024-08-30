@@ -1,12 +1,12 @@
 name: io-context
 version: 0.1.0
-digest: sha256:b0ef25a5fb6f5194905cb404dd29ce9d48e29d216ee06f0bdf40f44996c8b832
+digest: sha256:df88bf61d46a0b5e8a6bcfabb3a87354571ed0f683658565958d99de4798138f
 registry: 10.20.30.11:8080
 context: cyan
 filters:
   - all:
       - exact:
-          type: iodocument
+          type: org.mindwm.v1.iodocument
       - not:
           prefix:
             subject: '#'
@@ -23,4 +23,4 @@ run:
     - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
       value: http://tempo.monitoring:4317/v1/traces
     - name: LOG_LEVEL
-      value: DEBUG
+      value: INFO
