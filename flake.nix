@@ -73,7 +73,7 @@
             }
             { help = "render k8s manifests";
               name = "render";
-              command = "python src/helpers/build_and_deploy.py";
+              command = "python -c 'from mindwm.knfunc.helpers import renderResources; renderResources()'";
             }
             { help = "deploy knfunc to the cluster";
               name = "deploy";

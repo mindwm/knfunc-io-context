@@ -97,6 +97,24 @@
         "type": "github"
       }
     },
+    "flake-parts_4": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_4"
+      },
+      "locked": {
+        "lastModified": 1722555600,
+        "narHash": "sha256-XOQkdLafnb/p9ij77byFQjDf5m5QYl9b2REiVClC+x4=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "8471fe90ad337a8074e957b69ca4d0089218391d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
     "mindwm-sdk-python": {
       "inputs": {
         "devshell": "devshell_2",
@@ -104,14 +122,15 @@
         "neontology-py": "neontology-py",
         "nixpkgs": [
           "nixpkgs"
-        ]
+        ],
+        "strictjson-py": "strictjson-py"
       },
       "locked": {
-        "lastModified": 1724252092,
-        "narHash": "sha256-ddNiHGziJf2QAQnMdqECWYD9P11tyNDQEKogo+OEEMU=",
+        "lastModified": 1725007210,
+        "narHash": "sha256-qkDeS4oJx0DuYd2lYumPbIMKx8IkVTnyy9AjN812znc=",
         "owner": "mindwm",
         "repo": "mindwm-sdk-python-ng",
-        "rev": "6e558a7cff5615f0ba2e4e4ce33b22e3093b4a65",
+        "rev": "cb0f956aaf216aecd0850a3848c7d0d446c212b5",
         "type": "github"
       },
       "original": {
@@ -194,12 +213,46 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/a5d394176e64ab29c852d03346c1fc9b0b7d33eb.tar.gz"
       }
     },
+    "nixpkgs-lib_4": {
+      "locked": {
+        "lastModified": 1722555339,
+        "narHash": "sha256-uFf2QeW7eAHlYXuDktm9c25OxOyCoUOQmh5SZ9amE5Q=",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/a5d394176e64ab29c852d03346c1fc9b0b7d33eb.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/a5d394176e64ab29c852d03346c1fc9b0b7d33eb.tar.gz"
+      }
+    },
     "root": {
       "inputs": {
         "devshell": "devshell",
         "flake-parts": "flake-parts",
         "mindwm-sdk-python": "mindwm-sdk-python",
         "nixpkgs": "nixpkgs"
+      }
+    },
+    "strictjson-py": {
+      "inputs": {
+        "flake-parts": "flake-parts_4",
+        "nixpkgs": [
+          "mindwm-sdk-python",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1724405458,
+        "narHash": "sha256-Y+X+MLKd9tt3C6tynTyT2ny3/uyJhVIeGUQTq4aJyFY=",
+        "owner": "mindwm",
+        "repo": "strictjson.py-nix",
+        "rev": "6c3281c7f7ba3dfdc597d523885f54cf22a98177",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mindwm",
+        "repo": "strictjson.py-nix",
+        "type": "github"
       }
     }
   },
